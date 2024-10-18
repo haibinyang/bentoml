@@ -1,8 +1,12 @@
-service: "service:Summarization"
+service: "service.py:RAGService"
 labels:
   owner: bentoml-team
-  project: gallery
 include:
   - "*.py"
+exclude:
+  - "storage/"
 python:
-  requirements_txt: requirements.txt
+  requirements_txt: "./requirement.txt"
+docker:
+  distro: debian
+  python_version: "3.11"
